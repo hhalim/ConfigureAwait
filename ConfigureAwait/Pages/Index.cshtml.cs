@@ -53,6 +53,7 @@ namespace ConfigureAwait.Pages
             var result2 = RunAsync(2);
             var finalResult = await result1 + "/n" + await result2;
             sw.Stop();
+
             return "RunAsyncTwice2: " + sw.Elapsed;
         }
 
@@ -72,10 +73,9 @@ namespace ConfigureAwait.Pages
             sw.Restart();
             var finalResult = await Task.WhenAll(RunAsync(3), RunAsync(4));
             sw.Stop();
+
             return "RunAsyncTwice4: " + sw.Elapsed;
         }
-
-
 
         public async Task<string> RunAsync(int id)
         {
